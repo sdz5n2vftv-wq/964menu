@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>964 Street Bites | المنيو الإلكتروني</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --accent-color: #ff6600;
+            --text-color: #ffffff;
+            --text-muted: #b0b0b0;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            padding-bottom: 90px;
+        }
+        header {
+            text-align: center;
+            padding: 20px;
+            background: #181818;
+            border-bottom: 2px solid var(--accent-color);
+        }
+        header h1 {
+            margin: 0;
+            color: var(--accent-color);
+            font-size: 24px;
+        }
+        header p {
+            margin: 5px 0 0;
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 15px;
+        }
+        .category-title {
+            font-size: 20px;
+            color: var(--accent-color);
+            border-bottom: 1px solid #333;
+            padding-bottom: 5px;
+            margin-top: 25px;
+        }
+        .item-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 12px;
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+        .item-info {
+            flex-grow: 1;
+            margin-left: 10px;
+        }
+        .item-name {
+            font-size: 16px;
+            font-weight: bold;
+            margin: 0 0 4px;
+        }
+        .item-desc {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin: 0 0 8px;
+        }
+        .item-price {
+            font-size: 15px;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+        .counter {
+            display: flex;
+            align-items: center;
+            background: #2c2c2c;
+            border-radius: 20px;
+            padding: 4px 8px;
+        }
+        .counter button {
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .counter span {
+            margin: 0 10px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .footer-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: #181818;
+            border-top: 1px solid #333;
+            display: flex;
+            justify-content: space-around;
+            padding: 12px 0;
+            box-shadow: 0 -4px 10px rgba(0,0,0,0.5);
+        }
+        .btn-order {
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .btn-call {
+            background: #333;
+            color: white;
+            border: 1px solid var(--accent-color);
+            padding: 10px 25px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>964 STREET BITES</h1>
+        <p>نكهة الشارع... بأسلوبنا | حديقة حي المدراء</p>
+    </header>
+
+    <div class="container">
+        <!-- قسم التاكو -->
+        <div class="category-title">🌮 التاكو (Tacos)</div>
+        
+        <div class="item-card">
+            <div class="item-info">
+                <div class="item-name">تاكو لحم (3 قطع)</div>
+                <div class="item-desc">مع خس طازج، جبنة موزاريلا، وصوص 964 المميز</div>
+                <div class="item-price">6,000 د.ع</div>
+            </div>
+            <div class="counter">
+                <button onclick="changeQty('تاكو لحم (3 قطع)', 6000, -1)">-</button>
+                <span id="qty-تاكو لحم (3 قطع)">0</span>
+                <button onclick="changeQty('تاكو لحم (3 قطع)', 6000, 1)">+</button>
+            </div>
+        </div>
+
+        <div class="item-card">
+            <div class="item-info">
+                <div class="item-name">تاكو دجاج (3 قطع)</div>
+                <div class="item-desc">مع خس طازج، جبنة موزاريلا، وصوص 964 المميز</div>
+                <div class="item-price">5,500 د.ع</div>
+            </div>
+            <div class="counter">
+                <button onclick="changeQty('تاكو دجاج (3 قطع)', 5500, -1)">-</button>
+                <span id="qty-تاكو دجاج (3 قطع)">0</span>
+                <button onclick="changeQty('تاكو دجاج (3 قطع)', 5500, 1)">+</button>
+            </div>
+        </div>
+
+        <!-- قسم البوريتو -->
+        <div class="category-title">🌯 البوريتو (Burrito)</div>
+        <div class="item-card">
+            <div class="item-info">
+                <div class="item-name">بوريتو كرسبي</div>
+                <div class="item-desc">كرسبي مع فنكر، جبنة الشدر الذائبة، خس طازج، مخلل، وصوص 964</div>
+                <div class="item-price">5,000 د.ع</div>
+            </div>
+            <div class="counter">
+                <button onclick="changeQty('بوريتو كرسبي', 5000, -1)">-</button>
+                <span id="qty-بوريتو كرسبي">0</span>
+                <button onclick="changeQty('بوريتو كرسبي', 5000, 1)">+</button>
+            </div>
+        </div>
+
+        <!-- قسم الكومبير والبطاطا -->
+        <div class="category-title">🥔 الكومبير والبطاطا</div>
+        <div class="item-card">
+            <div class="item-info">
+                <div class="item-name">كومبير لحم</div>
+                <div class="item-desc">بطاطا مشوية بالفرن مع زبد وموزريلا ومحشوة باجود الإضافات</div>
+                <div class="item-price">5,000 د.ع</div>
+            </div>
+            <div class="counter">
+                <button onclick="changeQty('كومبير لحم', 5000, -1)">-</button>
+                <span id="qty-كومبير لحم">0</span>
+                <button onclick="changeQty('كومبير لحم', 5000, 1)">+</button>
+            </div>
+        </div>
+
+        <div class="item-card">
+            <div class="item-info">
+                <div class="item-name">فنكر بالجبن (Cheese Fries)</div>
+                <div class="item-desc">اصابع البطاطا المقلية مع جبن الشدر الذائب</div>
+                <div class="item-price">2,000 د.ع</div>
+            </div>
+            <div class="counter">
+                <button onclick="changeQty('فنكر بالجبن', 2000, -1)">-</button>
+                <span id="qty-فنكر بالجبن">0</span>
+                <button onclick="changeQty('فنكر بالجبن', 2000, 1)">+</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- شريط الطلب السفلي -->
+    <div class="footer-bar">
+        <a href="tel:07722202416" class="btn-call">📞 اتصل</a>
+        <button class="btn-order" onclick="sendOrder()">🛒 إرسال الطلب</button>
+    </div>
+
+    <script>
+        const cart = {};
+        function changeQty(name, price, delta) {
+            if (!cart[name]) cart[name] = { price: price, qty: 0 };
+            cart[name].qty += delta;
+            if (cart[name].qty < 0) cart[name].qty = 0;
+            document.getElementById('qty-' + name).innerText = cart[name].qty;
+        }
+
+        function sendOrder() {
+            let message = "مرحباً، أود طلب الأتي من 964 Street Bites:%0A";
+            let total = 0;
+            let hasItems = false;
+
+            for (let name in cart) {
+                if (cart[name].qty > 0) {
+                    hasItems = true;
+                    let itemTotal = cart[name].price * cart[name].qty;
+                    total += itemTotal;
+                    message += `- ${name} (عدد: ${cart[name].qty}) - ${itemTotal} د.ع%0A`;
+                }
+            }
+
+            if (!hasItems) {
+                alert("الرجاء اختيار وجبة واحدة على الأقل قبل إرسال الطلب!");
+                return;
+            }
+
+            message += `%0Aالمجموع الكلي: ${total} د.ع`;
+            let phone = "9647722202416";
+            window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
+        }
+    </script>
+</body>
+</html>
